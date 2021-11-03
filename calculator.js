@@ -1,32 +1,22 @@
 const { add, substraction, multiply, divide } = require("./operations");
-
-const prompt = require("prompt-sync")();
-
-const { divide } = require("./divide");
-const multiply = require("./multiply");
-const substract = require("./substract");
-const suma = require("./suma");
-
-const params = process.argv.slice(2);
-
 const operations = (number1, number2) => {
-  if (typeof number1 === "undefined") {
-    number1 = prompt("Enter first number: ");
-  }
-  if (typeof number2 === "undefined") {
-    number2 = prompt("Enter second number: ");
-  }
-
+  let html;
   if (Number.isNaN(+number1) || Number.isNaN(+number2)) {
-    console.log("One of the parameters is not a number :( ");
-    process.exit(9);
+    return `<h1>Oh error...</h1>`;
+  } else {
+    html = `<h1>Resultados:</h1>
+  <ul><li>${number1} + ${number2} = ${add(
+      number1,
+      number2
+    )}</li><li>${number1} - ${number2} = ${substraction(
+      number1,
+      number2
+    )}</li><li>${number1} * ${number2} = ${multiply(
+      number1,
+      number2
+    )}</li><li>${number1} / ${number2} = ${divide(number1, number2)}</li></ul>`;
   }
-
-  console.log("Resultados: ");
-  console.log(`${number1} + ${number2} = ${add(number1, number2)}`);
-  console.log(`${number1} - ${number2} = ${substraction(number1, number2)}`);
-  console.log(`${number1} * ${number2} = ${multiply(number1, number2)}`);
-  console.log(`${number1} / ${number2} = ${divide(number1, number2)}`);
+  return html;
 };
 
-operations(params[0], params[1]);
+module.exports = operations;
