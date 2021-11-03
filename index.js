@@ -13,11 +13,14 @@ program.option("-p, --port <port>", "output extra debugging");
 program.parse(process.argv);
 
 const options = program.opts();
-if (options.port) {
-  console.log(options.port);
-}
 
-const port = process.env.SERVER_URL || 5000;
+let port;
+
+if (options.port) {
+  port = options.port;
+} else {
+  port = process.env.SERVER_URL || 5000;
+}
 
 server.listen(port);
 
