@@ -16,8 +16,10 @@ server.on("request", (request, response) => {
   response.setHeader("Content-type", "text/html");
   if (url.parse(request.url, true).pathname === "/calculator") {
     response.write(results(a, b));
+    response.statusCode(200);
   } else {
     response.write("<h1>Oh error... sorry</h1>");
+    response.statusCode(404);
   }
 
   response.end();
