@@ -2,7 +2,7 @@ const { add, substraction, multiply, divide } = require("./operations");
 const operations = (number1, number2) => {
   let html;
   if (Number.isNaN(+number1) || Number.isNaN(+number2)) {
-    return `<p>Oh error...</p>`;
+    return `<h1>Oh error...</h1>`;
   } else {
     html = `<h1>Resultados:</h1>
   <ul><li>${number1} + ${number2} = ${add(
