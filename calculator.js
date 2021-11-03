@@ -1,3 +1,5 @@
+const { add, substraction, multiply, divide } = require("./operations");
+
 const prompt = require("prompt-sync")();
 
 const { divide } = require("./divide");
@@ -7,7 +9,7 @@ const suma = require("./suma");
 
 const params = process.argv.slice(2);
 
-const operar = (number1, number2) => {
+const operations = (number1, number2) => {
   if (typeof number1 === "undefined") {
     number1 = prompt("Enter first number: ");
   }
@@ -21,10 +23,10 @@ const operar = (number1, number2) => {
   }
 
   console.log("Resultados: ");
-  console.log(`${number1} + ${number2} = ${suma(number1, number2)}`);
-  console.log(`${number1} - ${number2} = ${substract(number1, number2)}`);
+  console.log(`${number1} + ${number2} = ${add(number1, number2)}`);
+  console.log(`${number1} - ${number2} = ${substraction(number1, number2)}`);
   console.log(`${number1} * ${number2} = ${multiply(number1, number2)}`);
   console.log(`${number1} / ${number2} = ${divide(number1, number2)}`);
 };
 
-operar(params[0], params[1]);
+operations(params[0], params[1]);
