@@ -2,11 +2,6 @@ const { add, substraction, multiply, divide } = require("./operations");
 
 const prompt = require("prompt-sync")();
 
-const { divide } = require("./divide");
-const multiply = require("./multiply");
-const substract = require("./substract");
-const suma = require("./suma");
-
 const params = process.argv.slice(2);
 
 const operations = (number1, number2) => {
